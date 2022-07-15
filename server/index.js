@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const port = 5000;
 
 const { auth } = require("./middleware/auth");
 const { User } = require("./models/User");
@@ -99,6 +98,13 @@ app.get("/api/users/logout", auth, (req, res) => {
   });
 });
 
+const port = 5000;
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
+});
+
+//테스트용(연습)
+app.get("/api/hello", (req, res) => {
+  res.send("안녕하세요");
 });
